@@ -10,5 +10,5 @@ export const personalData = {
   codechef:'https://www.codechef.com/users/likith_andavarapu',
   linkedIn: 'https://www.linkedin.com/in/likith-andavarapu-4a0085239/',
   leetcode: "https://leetcode.com/u/likith_andavarapu/",
-  resume: "https://drive.google.com/file/d/1eyutpKFFhJ9X-qpQGKhUNnVRkB5Wer00/view?usp=sharing"
+  resume: "https://drive.google.com/file/d/1smDzwlzsNnTaFJTDtMAK2yro5HKkJSeq/view?usp=sharing"
 }
