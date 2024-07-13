@@ -1,0 +1,82 @@
+"use client";
+import { useEffect, useState } from "react";
+import { personalData } from "@/utils/data/personal-data";
+import Link from "next/link";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
+import { MdDownload } from "react-icons/md";
+import { RiContactsFill } from "react-icons/ri";
+import { SiLeetcode } from "react-icons/si";
+import {SiCodeforces} from "react-icons/si";
+import {SiCodechef} from "react-icons/si";
+function AnimatedText({ text }) {
+  const [displayText, setDisplayText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < text.length-1) {
+        setDisplayText((prev) => prev + text[index]);
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100); // Adjust the speed as needed
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <span className="text-[#16f2b3]">{displayText}</span>;
+}
+
+function HeroSection() {
+  const description = `${personalData.designation}.`;
+
+  return (
+    <section className="relative flex flex-col items-center justify-center min-h-screen py-4 lg:py-12">
+      <div className="flex flex-col items-center p-2 pb-20 md:pb-10 lg:pt-10 text-center">
+        <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
+          Hello 👋, <br />
+          I am {' '}
+          <span className="text-pink-500">{personalData.name}</span>
+          <br />
+          <AnimatedText text={description} />
+        </h1>
+
+        <div className="my-12 flex items-center gap-5 justify-center">
+          <Link href={personalData.github} target='_blank' className="transition-all text-pink-500 hover:scale-125 duration-300">
+            <BsGithub size={30} />
+          </Link>
+          <Link href={personalData.linkedIn} target='_blank' className="transition-all text-pink-500 hover:scale-125 duration-300">
+            <BsLinkedin size={30} />
+          </Link>
+          <Link href={personalData.codeforces} target='_blank' className="transition-all text-pink-500 hover:scale-125 duration-300">
+            <SiCodeforces size={30} />
+          </Link>
+          <Link href={personalData.leetcode} target='_blank' className="transition-all text-pink-500 hover:scale-125 duration-300">
+            <SiLeetcode size={30} />
+          </Link>
+          <Link href={personalData.codechef} target='_blank' className="transition-all text-pink-500 hover:scale-125 duration-300">
+            <SiCodechef size={30} />
+          </Link>
+        </div>
+
+        <div className="flex items-center gap-3 justify-center">
+          <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
+            <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out md:font-semibold flex items-center gap-1 hover:gap-3">
+              <span>Contact me</span>
+              <RiContactsFill size={16} />
+            </button>
+          </Link>
+
+          <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold" role="button" target="_blank" href={personalData.resume}>
+            <span>Get Resume</span>
+            <MdDownload size={16} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default HeroSection;
