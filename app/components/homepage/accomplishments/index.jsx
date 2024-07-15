@@ -62,7 +62,7 @@ function Accomplishments() {
               <div className="p-5 bg-[#1a1443] rounded-lg shadow-lg h-60 w-96">
                 <h3 className="text-lg font-semibold text-[#16f2b3]">Web Development</h3>
                 <p className="text-base sm:text-xl mb-2">
-                  Winner of the SPEEUI competition conducted by IIIT Sri City.
+                  Winner of the SPEEDUI competition conducted by IIIT Sri City.
                 </p>
                 <p className="text-base">
                   Demonstrated strong skills in web development and UI/UX design throughout the competition.
